@@ -9,7 +9,8 @@ import { Details } from './details/details';
 import { Reservation } from './reservation/reservation';
 
 export const routes: Routes = [
-    { path: '', title: 'Home', component: Home },
+    { path: '**', redirectTo: 'Home' },
+    { path: 'Home', title: 'Home Page', component: Home },
     { path: 'login', title: 'Login', component: Login },
     { path: 'signup', title: 'Signup', component: Signup },
     { path: 'about', title: 'About', component: About },
@@ -17,5 +18,4 @@ export const routes: Routes = [
     { path: 'profile', title: 'User Profile', component: Profile },
     { path: 'details/:id/book', title: 'Book Now', component: Reservation },
     { path: 'details/:id', title: 'Details', component: Details },
-    { path: '**', redirectTo: '' }
 ]

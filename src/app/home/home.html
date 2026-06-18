@@ -36,7 +36,7 @@
 <div class="flights">
     @for (flight of flights(); track $index) {
     <div class="card" [attr.data-flight-id]="flight.id">
-        <img [src]="utils.getImage(flight.destination)" class="card-img-top" [alt]="flight.destination">
+        <!--img [src]="utils.getImage(flight.destination)" class="card-img-top" [alt]="flight.destination"-->
         <div class="card-body">
             <h5 class="card-title">{{flight.destination}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">

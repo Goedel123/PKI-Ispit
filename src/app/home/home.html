@@ -1,38 +1,45 @@
 <img src = "grin.png" width="1090" height="350">
+<br>
 @if (allFlights().length > 0) {
 <div class="row">
-    <div class="col-12 col-md-3 mb-3">
+    <div class="col-3 col-md-2 mb-3">
         <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
         </form>
    </div>
-    <div class="col-12 col-md-3 mb-3">
+    <div class="col-3 col-md-2 mb-3">
         <select class="form-select" [(ngModel)]="selectedDestination" (change)="search()">
-            <option value="all">All Destinations</option>
+            <option value="all">Svi tipovi</option>
             @for (dest of getDestinations(); track $index) {
             <option [value]="dest">{{dest}}</option>
             }
         </select>
     </div>
-    <div class="col-12 col-md-3 mb-3">
-        <select class="form-select" [(ngModel)]="selectedFlightNumber" (change)="search()">
-            <option value="all">All Flight Numbers</option>
-            @for (num of getFlightNumbers(); track $index) {
-            <option [value]="num">{{num}}</option>
-            }
+    <div class="col-3 col-md-2 mb-3">
+        <select class="form-select" [(ngModel)]="selectedRating" (change)="search()">
+            <option value="all">Za Decake i Devojcice</option>
+            <option value="positive">Za Decake</option>
+            <option value="negative">Za Devojcice</option>
         </select>
     </div>
-    <div class="col-12 col-md-3 mb-3">
+    <div class="col-3 col-md-2 mb-3">
         <select class="form-select" [(ngModel)]="selectedDepartureDate" (change)="search()">
-            <option value="all">Select Date</option>
+            <option value="all">Datum</option>
             @for (date of getDepartureDates(); track $index) {
             <option [value]="date">{{date}}</option>
             }
         </select>
     </div>
-    <div class="col-12 col-md-3 mb-3">
+    <div class="col-2 col-md-2 mb-3">
         <select class="form-select" [(ngModel)]="selectedRating" (change)="search()">
-            <option value="all">All Ratings</option>
+            <option value="all">Cena</option>
+            <option value="positive">Positive Rating</option>
+            <option value="negative">Negaive Rating</option>
+        </select>
+    </div>
+        <div class="col-2 col-md-2 mb-3">
+        <select class="form-select" [(ngModel)]="selectedRating" (change)="search()">
+            <option value="all">Recenzije Korisnika</option>
             <option value="positive">Positive Rating</option>
             <option value="negative">Negaive Rating</option>
         </select>

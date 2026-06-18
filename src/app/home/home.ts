@@ -28,7 +28,7 @@ export class Home {
   protected flights = signal<FlightModel[]>([])
 
   constructor(protected utils: Utils) {
-    this.utils.showLoading()
+    //this.utils.showLoading()
     UserService.loadRatingForDestination()
       .then(ratings => {
         FlightService.getFutureFlights()

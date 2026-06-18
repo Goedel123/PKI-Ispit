@@ -1,5 +1,11 @@
+<img src = "grin.png" width="1090" height="350">
 @if (allFlights().length > 0) {
 <div class="row">
+    <div class="col-12 col-md-3 mb-3">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+        </form>
+   </div>
     <div class="col-12 col-md-3 mb-3">
         <select class="form-select" [(ngModel)]="selectedDestination" (change)="search()">
             <option value="all">All Destinations</option>
@@ -38,7 +44,8 @@
     <div class="card" [attr.data-flight-id]="flight.id">
         <!--img [src]="utils.getImage(flight.destination)" class="card-img-top" [alt]="flight.destination"-->
         <div class="card-body">
-            <h5 class="card-title">{{flight.destination}}</h5>
+            <h5 class="card-title">GREEN TOY</h5>
+            <!--h5 class="card-title">{{flight.destination}}</h5-->
             <h6 class="card-subtitle mb-2 text-muted">
                 {{flight.flightNumber}} ({{utils.formatDate(flight.scheduledAt)}})
             </h6>

@@ -1,8 +1,9 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary mb-2">
+<nav class="navbar navbar-expand-lg bg-success mb-2">
   <div class="container">
     <a class="navbar-brand" routerLink="/">
             <img src = "pkilogos.webp" width="120" height="50">
-      <!--i class="fa-solid fa-plane-up"></i--> PKI ISPIT 2025 - Prodavnjica igracka
+      <!--i class="fa-solid fa-plane-up"></i-->
+      
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,35 +13,30 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" routerLink="/">
-            <i class="fa-solid fa-house"></i> Home
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/question">
-            <i class="fa-solid fa-clipboard-question"></i> Questions
+            Home
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/about">
-            <i class="fa-solid fa-circle-info"></i> About
+            About Us
           </a>
         </li>
         @if(hasAuth()) {
         <li class="nav-item">
           <a class="nav-link" routerLink="/profile">
-            <i class="fa-solid fa-user"></i> Profile
+             Profile
           </a>
         </li>
         <li class="nav-item">
           <button type="button" class="nav-link" (click)="logoutNow()">
-            <i class="fa-solid fa-circle-left"></i> Logout
+            Logout
           </button>
         </li>
         }
         @else {
         <li class="nav-item">
           <a class="nav-link" routerLink="/login">
-            <i class="fa-solid fa-right-to-bracket"></i> Login
+            Login
           </a>
         </li>
         }
@@ -56,3 +52,5 @@
 <div class="container">
   <router-outlet />
 </div>
+<br>
+ PKI ISPIT 2025 - Prodavnjica igracka

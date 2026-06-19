@@ -6,16 +6,22 @@
             <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
         </form>
    </div>
+       <div class="col-2 col-md-2 mb-3">
+        <label>Min Price: {{min}}</label>
+        <input type="range" min="0" max="10000" step="1" [(ngModel)]="min">
+        <label>Max Price: {{max}}</label>
+        <input type="range" min="0" max="10000" step="1" [(ngModel)]="max">   
+    </div>
     <div class="col-3 col-md-2 mb-3">
-        <select class="form-select" [(ngModel)]="selectedDestination" (change)="search()">
+        <select class="form-select" [(ngModel)]="tip" (change)="search()">
             <option value="all">Svi tipovi</option>
-            @for (dest of getDestinations(); track $index) {
-            <option [value]="dest">{{dest}}</option>
+            @for (tipp of getTipovi(); track $index) {
+            <option [value]="tip">{{tipp}}</option>
             }
         </select>
     </div>
     <div class="col-3 col-md-2 mb-3">
-        <select class="form-select" [(ngModel)]="selectedRating" (change)="search()">
+        <select class="form-select" [(ngModel)]="kome" (change)="search()">
             <option value="all">Za Decake i Devojcice</option>
             <option value="positive">Za Decake</option>
             <option value="negative">Za Devojcice</option>
@@ -29,13 +35,6 @@
             }
         </select>
     </div>
-    <div class="col-2 col-md-2 mb-3">
-        <select class="form-select" [(ngModel)]="selectedRating" (change)="search()">
-            <option value="all">Cena</option>
-            <option value="positive">Positive Rating</option>
-            <option value="negative">Negaive Rating</option>
-        </select>
-    </div>
         <div class="col-2 col-md-2 mb-3">
         <select class="form-select" [(ngModel)]="selectedRating" (change)="search()">
             <option value="all">Recenzije Korisnika</option>
@@ -45,6 +44,33 @@
     </div>
 </div>
 <div class="flights">
+    @for (toy of sveIgracke(); track $index)
+    {
+    <div class="card">
+        <img  [src]="'slike/' + toy.Ime + '.jpg'" class="card-img-top" [alt]="toy.Ime" >
+        <div class="card-body">
+            <h5 class="card-title">GREEN TOY</h5>
+            <!--h5 class="card-title">{{flight.destination}}</h5-->
+            <h6 class="card-subtitle mb-2 text-muted">
+               <!-- {{toy.flightNumber}} ({{utils.formatDate(flight.scheduledAt)}}) -->
+            </h6>
+            <p>
+               <!-- <i class="fa-solid fa-thumbs-up"></i> {{flight.rating?.likes}} <i class="fa-solid fa-thumbs-down"></i>
+                {{toy.rating?.dislikes}} -->
+            </p>
+        </div>
+        <div class="card-footer">
+            <!--div class="btn-group">
+                <a [routerLink]="`/details/${flight.id}`" class="btn btn-sm btn-primary">
+                    <i class="fa-solid fa-circle-info"></i> Details
+                </a>
+                <a [routerLink]="`/details/${flight.id}/book`" class="btn btn-sm btn-success">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Book Now
+                </a>
+            </div-->
+        </div>
+    </div>
+    }
     @for (flight of flights(); track $index) {
     <div class="card" [attr.data-flight-id]="flight.id">
         <!--img [src]="utils.getImage(flight.destination)" class="card-img-top" [alt]="flight.destination"-->

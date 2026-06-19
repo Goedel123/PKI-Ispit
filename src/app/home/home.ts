@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { UserService } from '../../services/user.service';
 import { FormsModule } from '@angular/forms';
 import { ToyModel } from '../../models/toy.model';
+import { ToyService } from '../../services/toy.service';
 
 @Component({
   selector: 'app-home',
@@ -15,20 +16,26 @@ import { ToyModel } from '../../models/toy.model';
   styleUrl: './home.css'
 })
 export class Home {
+
+  //minPrice = 0;
+  //maxPrice = 10;
+
   private static DESTINATION_KEY = 'pki_destination'
   private static FLIGHT_KEY = 'pki_flight'
   private static DEPARTURE_KEY = 'pki_departure'
   private static RATING_KEY = 'pki_rating'
 
-  private static SERC_KEY = 'pki_serc'
+  protected selectedDestination = this.loadValueFromLocalStorage(Home.DESTINATION_KEY, 'all')
+  protected selectedFlightNumber = this.loadValueFromLocalStorage(Home.FLIGHT_KEY, 'all')
+  protected selectedDepartureDate = this.loadValueFromLocalStorage(Home.DEPARTURE_KEY , 'all')
+  protected selectedRating = this.loadValueFromLocalStorage(Home.RATING_KEY , 'all')
 
-
-  protected selectedDestination = this.loadValueFromLocalStorage(Home.DESTINATION_KEY)
-  protected selectedFlightNumber = this.loadValueFromLocalStorage(Home.FLIGHT_KEY)
-  protected selectedDepartureDate = this.loadValueFromLocalStorage(Home.DEPARTURE_KEY)
-  protected selectedRating = this.loadValueFromLocalStorage(Home.RATING_KEY)
-
-  protected serc = this.loadValueFromLocalStorage(Home.SERC_KEY)
+  protected tip = this.loadValueFromLocalStorage("tip", "all")
+  protected kome = this.loadValueFromLocalStorage("kome", "all")
+  protected serc = this.loadValueFromLocalStorage("serc", "")
+  protected datum = this.loadValueFromLocalStorage("datum", "all")
+  protected min = this.loadValueFromLocalStorage("min", 0)
+  protected max = this.loadValueFromLocalStorage("max", 10000)
 
   protected allFlights = signal<FlightModel[]>([])
   protected flights = signal<FlightModel[]>([])
@@ -37,27 +44,15 @@ export class Home {
 
   constructor(protected utils: Utils) {
     //this.utils.showLoading()
-    UserService.loadRatingForDestination()
-      .then(ratings => {
-        FlightService.getFutureFlights()
-          .then(rsp => {
-            rsp.data.forEach(f => {
-              if (ratings[f.destination.replaceAll(' ', '_')]) {
-                f.rating = ratings[f.destination.replaceAll(' ', '_')]
-              } else {
-                f.rating = {
-                  likes: 0,
-                  dislikes: 0
-                }
-              }
-            })
-            this.allFlights.set(rsp.data)
-            this.search()
-            Swal.close()
-          })
-      })
+    this.sveIgracke.set(ToyService.getToys())
+    this.search()
+    Swal.close()
   }
 
+  protected getTipovi() {
+    const arr = this.sveIgracke().map(f => f.tip)
+    return [...new Set(arr)]
+  }
   protected getDestinations() {
     const arr = this.allFlights().map(f => f.destination)
     return [...new Set(arr)]
@@ -79,6 +74,37 @@ export class Home {
     localStorage.setItem(Home.FLIGHT_KEY, this.selectedFlightNumber)
     localStorage.setItem(Home.DEPARTURE_KEY, this.selectedDepartureDate)
     localStorage.setItem(Home.RATING_KEY, this.selectedRating)
+
+    localStorage.setItem("tip", this.tip)
+    localStorage.setItem("kome", this.kome)
+    localStorage.setItem("serc", this.serc)
+    localStorage.setItem("datum", this.datum)
+    localStorage.setItem("min", this.min)
+    localStorage.setItem("max", this.max)
+
+    this.igracke.set(this.sveIgracke()
+    .filter( f => {
+      if (this.tip != 'svi')
+        return f.tip == this.tip
+      return true
+    }).filter( f => {
+      if (this.kome != 'svi')
+        return f.cijnaGrupa == this.kome
+      return true
+    }).filter( f => {
+      if (this.kome != 'svi')
+        return f.Ime.toLowerCase().includes(this.serc.toLowerCase())
+      return true
+    }).filter( f => {
+      if (this.datum != 'svi')
+        return f.datumProizvodnje == this.datum
+      return true
+    }).filter( f => {
+        return f.cena > Number(this.min)
+    }).filter( f => {
+      return f.cena < Number(this.max)
+    })
+  )
 
     this.flights.set(this.allFlights()
       .filter(f => {
@@ -112,9 +138,9 @@ export class Home {
     )
   }
 
-  protected loadValueFromLocalStorage(key: string) {
+  protected loadValueFromLocalStorage(key: string, def: any) {
     if (!localStorage.getItem(key))
-      localStorage.setItem(key, 'all')
+      localStorage.setItem(key, def)
 
     return localStorage.getItem(key)!
   }

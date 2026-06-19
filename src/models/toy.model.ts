@@ -4,11 +4,11 @@ export interface ToyModel {
     Ime: string,
     Opis: string,
     tip: string,
-    uzrast: Number,
+    uzrast: number,
     cijnaGrupa: "devojcica" | "decak" | "svi",
     datumProizvodnje: string,
-    cena: Number,
+    cena: number,
     status: string,
-    ocena: Number,
+    ocena: number,
 
 }

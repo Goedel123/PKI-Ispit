@@ -1,23 +1,25 @@
 [
 {
     "Ime": "igracka",
+    "Slika": "igracka.jpg",
     "Opis": "Zabavno",
     "tip": "Kocka",
     "uzrast": 5,
     "cijnaGrupa": "svi",
-    "datumProizvodnje": "90ih mislim",
-    "cena": 3,
+    "datumProizvodnje": 1982,
+    "cena": 1232,
     "status": "rezervisano",
     "ocena": 3
 
 },
 {
     "Ime": "igracka2",
+    "Slika": "igracka2.jpg",
     "Opis": "Zabavno",
-    "tip": "Kocka",
+    "tip": "Lopta",
     "uzrast": 5,
     "cijnaGrupa": "decak",
-    "datumProizvodnje": "90ih mislim",
+    "datumProizvodnje": 1923,
     "cena": 3,
     "status": "rezervisano",
     "ocena": 3

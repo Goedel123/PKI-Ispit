@@ -1,73 +1,69 @@
 <img src = "grin.png" width="1090" height="350">
 <br>
 <div class="row">
-    <div class="col-3 col-md-2 mb-3">
+    <div class="col-13 col-md-12 mb-3">
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+            <input [(ngModel)] = "serc" name="serc"
+            class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"  (input)="search()">
         </form>
    </div>
-       <div class="col-2 col-md-2 mb-3">
-        <label>Min Price: {{min}}</label>
-        <input type="range" min="0" max="10000" step="1" [(ngModel)]="min">
-        <label>Max Price: {{max}}</label>
-        <input type="range" min="0" max="10000" step="1" [(ngModel)]="max">   
-    </div>
     <div class="col-3 col-md-2 mb-3">
         <select class="form-select" [(ngModel)]="tip" (change)="search()">
-            <option value="all">Svi tipovi</option>
+            <option value="svi">Svi tipovi</option>
             @for (tipp of getTipovi(); track $index) {
-            <option [value]="tip">{{tipp}}</option>
+            <option [value]="tipp">{{tipp}}</option>
             }
         </select>
     </div>
     <div class="col-3 col-md-2 mb-3">
         <select class="form-select" [(ngModel)]="kome" (change)="search()">
-            <option value="all">Za Decake i Devojcice</option>
-            <option value="positive">Za Decake</option>
-            <option value="negative">Za Devojcice</option>
+            <option value="svi">Za Decake i Devojcice</option>
+            <option value="decak">Za Decake</option>
+            <option value="devoj">Za Devojcice</option>
         </select>
     </div>
     <div class="col-3 col-md-2 mb-3">
-        <select class="form-select" [(ngModel)]="selectedDepartureDate" (change)="search()">
-            <option value="all">Datum</option>
-            @for (date of getDepartureDates(); track $index) {
-            <option [value]="date">{{date}}</option>
+        <select class="form-select" [(ngModel)]="datum" (change)="search()">
+            <option value="0">Bilo Koje vreme</option>
+            @for (date of getDatum(); track $index) {
+            <option [value]="date">{{date}}.</option>
             }
         </select>
     </div>
         <div class="col-2 col-md-2 mb-3">
         <select class="form-select" [(ngModel)]="selectedRating" (change)="search()">
-            <option value="all">Recenzije Korisnika</option>
+            <option value="svi">Recenzije Korisnika</option>
             <option value="positive">Positivne</option>
             <option value="negative">Negativne</option>
         </select>
     </div>
+    <div class="col-2 col-md-2 mb-3">
+        <label>Min Cena: {{min}} din.</label>
+        <input type="range" min="0" max="3000" step="1" [(ngModel)]="min"  (change)="search()">
+        <label>Max Cena: {{max}} din.</label>
+        <input type="range" min="0" max="3000" step="1" [(ngModel)]="max"  (change)="search()">   
+    </div>
 </div>
 <div class="flights">
-    @for (toy of sveIgracke(); track $index)
+    @for (toy of igracke(); track $index)
     {
-    <div class="card">
-        <img  [src]="'slike/' + toy.Ime + '.jpg'" class="card-img-top" [alt]="toy.Ime" >
+    <div class="card " style="overflow: hidden;">
+        <img  [src]="'slike/' + toy.Slika" class="card-img-top zoom-img" [alt]="toy.Ime" >
         <div class="card-body">
-            <h5 class="card-title">GREEN TOY</h5>
-            <!--h5 class="card-title">{{flight.destination}}</h5-->
+            <h5 class="card-title">{{toy.Ime}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">
+                Cena: {{toy.cena}} Dinara <br>
+                Ocena: {{toy.ocena}} <br>
+                Tip: {{toy.tip}} <br>
+                Godina Proizvodjne: {{toy.datumProizvodnje}} <br>
                <!-- {{toy.flightNumber}} ({{utils.formatDate(flight.scheduledAt)}}) -->
             </h6>
             <p>
-               <!-- <i class="fa-solid fa-thumbs-up"></i> {{flight.rating?.likes}} <i class="fa-solid fa-thumbs-down"></i>
-                {{toy.rating?.dislikes}} -->
+                {{toy.Opis}}<br>
             </p>
         </div>
         <div class="card-footer">
-            <!--div class="btn-group">
-                <a [routerLink]="`/details/${flight.id}`" class="btn btn-sm btn-primary">
-                    <i class="fa-solid fa-circle-info"></i> Details
-                </a>
-                <a [routerLink]="`/details/${flight.id}/book`" class="btn btn-sm btn-success">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Book Now
-                </a>
-            </div-->
+             Status: {{toy.status}} <br>
         </div>
     </div>
     }
@@ -98,8 +94,10 @@
     </div>
     }
 </div>
- @if (1==1) {
+ @if (igracke().length == 0) {
 <div class="text-center">
     <h5>Nemozemo naci takvu igracku.</h5>
+    <br><br><br><br><br><br><br><br><br><br><br>  <!-- malo je hladno ovde..-->
+    <br><br><br><br><br><br><br><br><br><br><br>
 </div>
 }

@@ -8,3 +8,11 @@
 .card {
     width: 18rem;
 }
+
+.zoom-img {
+  transition: transform 0.5s ease;
+}
+
+.zoom-img:hover {
+  transform: scale(1.1);
+}

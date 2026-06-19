@@ -17,8 +17,6 @@ import { ToyService } from '../../services/toy.service';
 })
 export class Home {
 
-  //minPrice = 0;
-  //maxPrice = 10;
 
   private static DESTINATION_KEY = 'pki_destination'
   private static FLIGHT_KEY = 'pki_flight'
@@ -30,12 +28,12 @@ export class Home {
   protected selectedDepartureDate = this.loadValueFromLocalStorage(Home.DEPARTURE_KEY , 'all')
   protected selectedRating = this.loadValueFromLocalStorage(Home.RATING_KEY , 'all')
 
-  protected tip = this.loadValueFromLocalStorage("tip", "all")
-  protected kome = this.loadValueFromLocalStorage("kome", "all")
+  protected tip = this.loadValueFromLocalStorage("tip", "svi")
+  protected kome = this.loadValueFromLocalStorage("kome", "svi")
   protected serc = this.loadValueFromLocalStorage("serc", "")
-  protected datum = this.loadValueFromLocalStorage("datum", "all")
+  protected datum = this.loadValueFromLocalStorage("datum", "0")
   protected min = this.loadValueFromLocalStorage("min", 0)
-  protected max = this.loadValueFromLocalStorage("max", 10000)
+  protected max = this.loadValueFromLocalStorage("max", 3000)
 
   protected allFlights = signal<FlightModel[]>([])
   protected flights = signal<FlightModel[]>([])
@@ -51,6 +49,10 @@ export class Home {
 
   protected getTipovi() {
     const arr = this.sveIgracke().map(f => f.tip)
+    return [...new Set(arr)]
+  }
+  protected getDatum() {
+    const arr = this.sveIgracke().map(f => f.datumProizvodnje)
     return [...new Set(arr)]
   }
   protected getDestinations() {
@@ -69,6 +71,7 @@ export class Home {
   }
 
   protected search() {
+    console.log(this.tip);
     // Podesavamo vrednosti nazad svih select polja u local storage
     localStorage.setItem(Home.DESTINATION_KEY, this.selectedDestination)
     localStorage.setItem(Home.FLIGHT_KEY, this.selectedFlightNumber)
@@ -82,22 +85,26 @@ export class Home {
     localStorage.setItem("min", this.min)
     localStorage.setItem("max", this.max)
 
+    console.log(this.tip);
     this.igracke.set(this.sveIgracke()
     .filter( f => {
+          console.log( "f.tip je" +f.tip);
       if (this.tip != 'svi')
         return f.tip == this.tip
       return true
-    }).filter( f => {
+    })
+    .filter( f => {
       if (this.kome != 'svi')
         return f.cijnaGrupa == this.kome
       return true
     }).filter( f => {
-      if (this.kome != 'svi')
+      if (this.serc != '')
         return f.Ime.toLowerCase().includes(this.serc.toLowerCase())
       return true
     }).filter( f => {
-      if (this.datum != 'svi')
-        return f.datumProizvodnje == this.datum
+      console.log(f.datumProizvodnje  + "  wdwd" + this.datum)
+      if (Number(this.datum) != 0)
+        return f.datumProizvodnje == Number(this.datum)
       return true
     }).filter( f => {
         return f.cena > Number(this.min)

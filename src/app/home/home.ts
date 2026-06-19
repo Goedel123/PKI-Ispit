@@ -45,12 +45,12 @@ export class Home {
     this.search()
     Swal.close()
   }
-    DaliJeUKorpi(id: number) {
-     return DaliJeUKorpi(id);
-    }
-    UbaciUKorpu(id: number){
-      return UbaciUKorpu(id);
-    }
+  DaliJeUKorpi(id: number) {
+    return DaliJeUKorpi(id);
+  }
+  UbaciUKorpu(id: number) {
+    return UbaciUKorpu(id);
+  }
   protected getTipovi() {
     const arr = this.sveIgracke().map(f => f.tip)
     return [...new Set(arr)]
@@ -103,7 +103,7 @@ export class Home {
         return true
       }).filter(f => {
         if (this.serc != '')
-          return f.Ime.toLowerCase().includes(this.serc.toLowerCase())
+          return ((f.Opis.toLowerCase() + " " + f.Ime.toLowerCase()).includes(this.serc.toLowerCase()))
         return true
       }).filter(f => {
         console.log(f.datumProizvodnje + "  wdwd" + this.datum)

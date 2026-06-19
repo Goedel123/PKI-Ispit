@@ -1,12 +1,12 @@
-<img src = "grin.png" width="1090" height="350" class="zoom-imge">
+<img src="grin.png" width="1090" height="350" class="zoom-imge">
 <br>
 <div class="row">
     <div class="col-13 col-md-12 mb-3">
         <form class="d-flex" role="search">
-            <input [(ngModel)] = "serc" name="serc"
-            class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"  (input)="search()">
+            <input [(ngModel)]="serc" name="serc" class="form-control me-2" type="search" placeholder="Search..."
+                aria-label="Search" (input)="search()">
         </form>
-   </div>
+    </div>
     <div class="col-3 col-md-2 mb-3">
         <select class="form-select" [(ngModel)]="tip" (change)="search()">
             <option value="svi">Svi tipovi</option>
@@ -30,7 +30,7 @@
             }
         </select>
     </div>
-        <div class="col-2 col-md-2 mb-3">
+    <div class="col-2 col-md-2 mb-3">
         <select class="form-select" [(ngModel)]="selectedRating" (change)="search()">
             <option value="svi">Recenzije Korisnika</option>
             <option value="positive">Positivne</option>
@@ -39,24 +39,23 @@
     </div>
     <div class="col-2 col-md-2 mb-3">
         <label>Min Cena: {{min}} din.</label>
-        <input type="range" min="0" max="3000" step="1" [(ngModel)]="min"  (change)="search()">
+        <input type="range" min="0" max="3000" step="1" [(ngModel)]="min" (change)="search()">
         <label>Max Cena: {{max}} din.</label>
-        <input type="range" min="0" max="3000" step="1" [(ngModel)]="max"  (change)="search()">   
+        <input type="range" min="0" max="3000" step="1" [(ngModel)]="max" (change)="search()">
     </div>
 </div>
 <div class="flights">
     @for (toy of igracke(); track $index)
     {
     <div class="card " style="overflow: hidden;">
-        <img  [src]="'slike/' + toy.Slika" class="card-img-top zoom-img" [alt]="toy.Ime" >
+        <img [src]="'slike/' + toy.Slika" class="card-img-top zoom-img" [alt]="toy.Ime">
         <div class="card-body">
             <h5 class="card-title">{{toy.Ime}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">
-                Cena: {{toy.cena}} Dinara <br>
                 Ocena: {{toy.ocena}} <br>
                 Tip: {{toy.tip}} <br>
                 Godina Proizvodjne: {{toy.datumProizvodnje}} <br>
-               <!-- {{toy.flightNumber}} ({{utils.formatDate(flight.scheduledAt)}}) -->
+                <!-- {{toy.flightNumber}} ({{utils.formatDate(flight.scheduledAt)}}) -->
             </h6>
             <p>
                 {{toy.Opis}}<br><br>
@@ -64,6 +63,9 @@
             </p>
         </div>
         <div class="card-footer">
+            <div class="d-flex justify-content-center">
+                <br><b>Cena: {{toy.cena}} Dinara<br></b>
+            </div>
             @if (!DaliJeUKorpi(toy.Id))
             {
             <div class="d-flex justify-content-center">
@@ -73,7 +75,7 @@
             </div>
             }
             @else {
-            <div class="d-flex justify-content-center "style="background-color: lightgreen;">
+            <div class="d-flex justify-content-center " style="background-color: lightgreen;">
                 Dodato u Korpu!
             </div>
             }
@@ -81,10 +83,10 @@
     </div>
     }
 </div>
- @if (igracke().length == 0) {
+@if (igracke().length == 0) {
 <div class="text-center">
     <h5>Nemozemo naci takvu igracku.</h5>
-    <br><br><br><br><br><br><br><br><br><br><br>  <!-- malo je hladno ovde..-->
+    <br><br><br><br><br><br><br><br><br><br><br> <!-- malo je hladno ovde..-->
     <br><br><br><br><br><br><br><br><br><br><br>
 </div>
 }

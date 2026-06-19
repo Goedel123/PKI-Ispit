@@ -3,24 +3,24 @@
     "Ime": "igracka",
     "Opis": "Zabavno",
     "tip": "Kocka",
-    "uzrast": "5",
+    "uzrast": 5,
     "cijnaGrupa": "svi",
     "datumProizvodnje": "90ih mislim",
-    "cena": "3 dindzi",
+    "cena": 3,
     "status": "rezervisano",
-    "ocena": "3"
+    "ocena": 3
 
 },
 {
     "Ime": "igracka2",
     "Opis": "Zabavno",
     "tip": "Kocka",
-    "uzrast": "5",
-    "cijnaGrupa": "svi",
+    "uzrast": 5,
+    "cijnaGrupa": "decak",
     "datumProizvodnje": "90ih mislim",
-    "cena": "3 dindzi",
+    "cena": 3,
     "status": "rezervisano",
-    "ocena": "3"
+    "ocena": 3
 
 }
 ]

@@ -5,7 +5,7 @@ export interface ToyModel {
     Opis: string,
     tip: string,
     uzrast: Number,
-    cijnaGrupa: 'devojcica' | 'decak' | 'svi',
+    cijnaGrupa: "devojcica" | "decak" | "svi",
     datumProizvodnje: string,
     cena: Number,
     status: string,

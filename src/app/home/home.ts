@@ -6,6 +6,7 @@ import { Utils } from '../utils';
 import Swal from 'sweetalert2';
 import { UserService } from '../../services/user.service';
 import { FormsModule } from '@angular/forms';
+import { ToyModel } from '../../models/toy.model';
 
 @Component({
   selector: 'app-home',
@@ -19,13 +20,20 @@ export class Home {
   private static DEPARTURE_KEY = 'pki_departure'
   private static RATING_KEY = 'pki_rating'
 
+  private static SERC_KEY = 'pki_serc'
+
+
   protected selectedDestination = this.loadValueFromLocalStorage(Home.DESTINATION_KEY)
   protected selectedFlightNumber = this.loadValueFromLocalStorage(Home.FLIGHT_KEY)
   protected selectedDepartureDate = this.loadValueFromLocalStorage(Home.DEPARTURE_KEY)
   protected selectedRating = this.loadValueFromLocalStorage(Home.RATING_KEY)
 
+  protected serc = this.loadValueFromLocalStorage(Home.SERC_KEY)
+
   protected allFlights = signal<FlightModel[]>([])
   protected flights = signal<FlightModel[]>([])
+  protected sveIgracke = signal<ToyModel[]>([])
+  protected igracke = signal<ToyModel[]>([])
 
   constructor(protected utils: Utils) {
     //this.utils.showLoading()

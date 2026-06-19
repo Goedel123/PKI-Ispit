@@ -8,8 +8,10 @@ import { Profile } from './profile/profile';
 import { Details } from './details/details';
 import { Reservation } from './reservation/reservation';
 import { Korpa } from './korpa/korpa';
+import { Logout } from './logout/logout';
 
 export const routes: Routes = [
+    { path: 'logout', title: 'Logout', component: Logout },
     { path: 'korpa', title: 'Korpa', component: Korpa },
     { path: 'Home', title: 'Home Page', component: Home },
     { path: 'login', title: 'Login', component: Login },

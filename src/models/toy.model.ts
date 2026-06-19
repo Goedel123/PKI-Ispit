@@ -10,7 +10,7 @@ export interface ToyModel {
     cijnaGrupa: "devojcica" | "decak" | "svi",
     datumProizvodnje: number,
     cena: number,
-    status: string,
+    status: "rezervisano" | "pristiglo" | "otkazano",
     ocena: number,
 
 }

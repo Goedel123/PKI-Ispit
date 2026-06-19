@@ -6,6 +6,4 @@ export interface UserModel {
     email: string,
     phone: string,
     password: string,
-    destination: string,
-    data: ReservationModel[]
 }

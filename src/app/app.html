@@ -1,9 +1,9 @@
 <nav class="navbar fixed-top navbar-expand-lg mb-2" style="background-color: lightgreen;">
   <div class="container">
     <a class="navbar-brand" routerLink="/">
-            <img src = "pkilogos.webp" width="120" height="50"  class= "zoom-img">
+      <img src="pkilogos.webp" width="120" height="50" class="zoom-img">
       <!--i class="fa-solid fa-plane-up"></i-->
-      
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,13 +24,13 @@
         @if(hasAuth()) {
         <li class="nav-item">
           <a class="nav-link" routerLink="/profile">
-             Profile
+            Profile
           </a>
         </li>
         <li class="nav-item">
-          <button type="button" class="nav-link" (click)="logoutNow()">
+          <a class="nav-link" routerLink="/logout">
             Logout
-          </button>
+          </a>
         </li>
         }
         @else {
@@ -39,7 +39,7 @@
             Login
           </a>
         </li>
-          <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" routerLink="/signup">
             Sign Up
           </a>
@@ -47,18 +47,20 @@
         }
       </ul>
       @if(hasAuth()) {
-      <div class="navbar-text">
-       <i class="fa-solid fa-user"></i> {{currentUser()}}
+      <div class="navbar-text" style="color: white;">
+        <a class="nav-link" routerLink="/profile">
+          <i class="fa-solid fa-user"></i> {{currentUser()}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </a>
       </div>
       }
     </div>
     <div class="justify-content-end">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       <a class="nav-link" routerLink="/favorites">
-           Favorites :]  <i class="fa-regular fa-heart"></i>
+        <a class="nav-link" routerLink="/favorites">
+          Favorites :] <i class="fa-regular fa-heart"></i>
         </a>
         <a class="nav-link" routerLink="/korpa">
-          Korpa  
+          Korpa
           <i class="fa-solid fa-cart-shopping"></i>
         </a>
       </ul>
@@ -70,7 +72,7 @@
 </div>
 <br>
 <div class="d-flex justify-content-center" style="color:gray">
- PKI ISPIT 2025 - Prodavnjica igracka <br>
- Lazar Obradovic 2023201935<br><br>
+  PKI ISPIT 2025 - Prodavnjica igracka <br>
+  Lazar Obradovic 2023201935<br><br>
 </div>
 <br>

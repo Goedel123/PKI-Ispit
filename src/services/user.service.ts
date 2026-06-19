@@ -15,7 +15,6 @@ export class UserService {
                     email: 'user@example.com',
                     phone: '+38163123123',
                     password: 'user123',
-                    data: []
                 }
             ]))
         return JSON.parse(localStorage.getItem(UserService.USERS_KEY)!)
@@ -59,14 +58,14 @@ export class UserService {
         const users = this.getUsers()
         users.forEach(u => {
             if (u.email == active.email) {
-                u.data.push({
+                /*u.data.push({
                     flightId: id,
                     airline,
                     suite,
                     status: 'waiting',
                     createdAt: new Date().toISOString(),
                     updatedAt: null
-                })
+                })*/
             }
         })
         localStorage.setItem(UserService.USERS_KEY, JSON.stringify(users))
@@ -77,12 +76,12 @@ export class UserService {
         const users = this.getUsers()
         users.forEach(u => {
             if (u.email == active.email) {
-                u.data.forEach(r => {
+                /*u.data.forEach(r => {
                     if (r.createdAt == createdAt) {
                         r.updatedAt = new Date().toISOString()
                         r.status = newStatus
                     }
-                })
+                })*/
             }
         })
         localStorage.setItem(UserService.USERS_KEY, JSON.stringify(users))
@@ -92,12 +91,12 @@ export class UserService {
         const active = this.getActiveUser()
         const users = this.getUsers()
         users.forEach(u => {
-            if (u.email == active.email) {
+            /*if (u.email == active.email) {
                 u.firstName = newUser.firstName
                 u.lastName = newUser.lastName
                 u.phone = newUser.phone
                 u.destination = newUser.destination
-            }
+            }*/
         })
         localStorage.setItem(UserService.USERS_KEY, JSON.stringify(users))
     }
@@ -119,7 +118,7 @@ export class UserService {
         // Grupisemo sve rezervacije svih korisnika
         // u jedan zajednicki niz
         for (let u of this.getUsers()) {
-            reservations.push(...u.data)
+            //reservations.push(...u.data)
         }
 
         // Ucitavamo sve detalje letova za sve rezervacije

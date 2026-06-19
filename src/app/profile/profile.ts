@@ -24,7 +24,7 @@ export class Profile {
 
   constructor(private formBuilder: FormBuilder, private router: Router, public utils: Utils) {
     try {
-      this.utils.showLoading()
+     // this.utils.showLoading()
       this.currentUser.set(UserService.getActiveUser())
     } catch {
       // Nema aktivnog korisnika
@@ -36,7 +36,7 @@ export class Profile {
       firstName: [this.currentUser()!.firstName, Validators.required],
       lastName: [this.currentUser()!.lastName, Validators.required],
       phone: [this.currentUser()!.phone, Validators.required],
-      destination: [this.currentUser()!.destination, Validators.required]
+      email: [this.currentUser()!.email, Validators.required],
     })
 
     this.passwordForm = this.formBuilder.group({
@@ -45,11 +45,6 @@ export class Profile {
       repeat: ['', Validators.required]
     })
 
-    FlightService.getFlightsByIds(this.currentUser()!.data.map(r => r.flightId))
-      .then(rsp => {
-        this.flights.set(rsp.data)
-        Swal.close()
-      })
 
     FlightService.getDestinations()
       .then(rsp => {

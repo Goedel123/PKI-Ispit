@@ -1,4 +1,3 @@
-import { FlightModel } from "../models/flight.model"
 import { ReservationModel } from "../models/reservation.model"
 import { UserModel } from "../models/user.model"
 import { FlightService } from "./flight.service"
@@ -11,12 +10,11 @@ export class UserService {
         if (!localStorage.getItem(UserService.USERS_KEY))
             localStorage.setItem(UserService.USERS_KEY, JSON.stringify([
                 {
-                    firstName: 'Example',
-                    lastName: 'User',
+                    firstName: 'User',  
+                    lastName: 'Example',
                     email: 'user@example.com',
                     phone: '+38163123123',
                     password: 'user123',
-                    destination: 'Zagreb',
                     data: []
                 }
             ]))

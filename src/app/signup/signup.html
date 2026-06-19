@@ -1,46 +1,43 @@
-<div class="card login">
-    <div class="card-header">
+<div class="card login  rounded-0">
+    <div class="d-flex justify-content-center card-header rounded-0" style="background-color: lightgreen;">
         <h5>Signup</h5>
     </div>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-            <div class="mb-3">
-                <label for="name" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="name" formControlName="firstName">
+            <div class="row">
+                <div class="mb-2 rounded-0">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control rounded-0" id="name" formControlName="firstName">
+                </div>
+                <div class="mb-2">
+                    <label for="surname" class="form-label">Surname</label>
+                    <input type="text" class="form-control rounded-0" id="surname" formControlName="lastName">
+                </div>
             </div>
             <div class="mb-3">
-                <label for="surname" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="surname" formControlName="lastName">
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" formControlName="email">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control rounded-0" id="email" formControlName="email">
             </div>
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" formControlName="phone">
+                <input type="tel" class="form-control rounded-0" id="phone" formControlName="phone">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" formControlName="password">
+                <input type="password" class="form-control rounded-0" id="password" formControlName="password">
             </div>
-            <div class="mb-3">
-                <label for="repeat" class="form-label">Repeat Password</label>
+            <div class="mb-3  rounded-0">
+                <label for="repeat" class="form-label">Confirm Password</label>
                 <input type="password" class="form-control" id="repeat" formControlName="repeat">
             </div>
-            <div class="mb-3">
-                <label for="destination" class="form-label">Choose Destination</label>
-                <select class="form-select" id="destination" formControlName="destination">
-                    @for (d of destinations(); track $index) {
-                    <option [value]="d">{{d}}</option>
-                    }
-                </select>
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Register
+            <label>
+                <input type="checkbox" id="checkbox" formControlName="checkbox">
+                <a href="/toc"> I accept the terms of service. </a>
+            </label>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-success  rounded-0">
+                    Register
                 </button>
-                <a routerLink="/login" class="btn btn-link">I already have an account</a>
             </div>
         </form>
     </div>

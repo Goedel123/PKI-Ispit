@@ -1,5 +1,4 @@
-import { Component, signal } from '@angular/core';
-import { MainService } from '../../services/main.service';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
@@ -13,20 +12,17 @@ import { Utils } from '../utils';
 })
 export class Signup {
   protected form: FormGroup
-  protected destinations = signal<string[]>([])
 
   constructor(private formBuilder: FormBuilder, protected router: Router, private utils: Utils) {
-    MainService.getDestinations()
-      .then(rsp => this.destinations.set(rsp.data))
 
     this.form = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      Name: ['', Validators.required],
+      Surname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       password: ['', Validators.required],
-      repeat: ['', Validators.required],
-      destination: ['', Validators.required]
+      confirm: ['', Validators.required],
+      checkbox: [false, Validators.requiredTrue]
     })
   }
 
@@ -48,7 +44,7 @@ export class Signup {
       this.router.navigateByUrl('/login')
     } catch (e) {
       console.error(e)
-      this.utils.showError('Data missing!')
+      this.utils.showError(String(e))
     }
   }
 }

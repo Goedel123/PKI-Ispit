@@ -5,3 +5,7 @@
 .zoom-img:hover {
   transform: scale(2);
 }
+
+.GREEN{
+    background-color: lightgreen;
+}

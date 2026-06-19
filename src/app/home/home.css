@@ -16,3 +16,11 @@
 .zoom-img:hover {
   transform: scale(1.1);
 }
+
+.zoom-imge {
+  transition: transform 3s ease;
+}
+
+.zoom-imge:hover {
+  transform: scale(0.8)
+}

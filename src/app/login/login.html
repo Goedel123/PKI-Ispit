@@ -1,19 +1,19 @@
-<div class="card login">
-    <div class="card-header">
+<div class="card login rounded-0">
+    <div class="d-flex justify-content-center card-header rounded-0"style="background-color: lightgreen;">
         <h5>Login</h5>
     </div>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
             <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" formControlName="email">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control rounded-0" id="email" formControlName="email">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" formControlName="password">
+                <input type="password" class="form-control rounded-0" id="password" formControlName="password">
             </div>
-            <div>
-                <button type="submit" class="btn btn-primary">
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-outline-success rounded-0">
                     Login
                 </button>
             </div>

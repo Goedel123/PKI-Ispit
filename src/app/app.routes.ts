@@ -7,8 +7,10 @@ import { Signup } from './signup/signup';
 import { Profile } from './profile/profile';
 import { Details } from './details/details';
 import { Reservation } from './reservation/reservation';
+import { Korpa } from './korpa/korpa';
 
 export const routes: Routes = [
+    { path: 'Korpa', title: 'Korpa', component: Korpa },
     { path: 'Home', title: 'Home Page', component: Home },
     { path: 'login', title: 'Login', component: Login },
     { path: 'signup', title: 'Signup', component: Signup },

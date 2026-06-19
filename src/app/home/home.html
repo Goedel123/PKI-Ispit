@@ -1,6 +1,5 @@
 <img src = "grin.png" width="1090" height="350">
 <br>
-@if (allFlights().length > 0) {
 <div class="row">
     <div class="col-3 col-md-2 mb-3">
         <form class="d-flex" role="search">
@@ -40,12 +39,11 @@
         <div class="col-2 col-md-2 mb-3">
         <select class="form-select" [(ngModel)]="selectedRating" (change)="search()">
             <option value="all">Recenzije Korisnika</option>
-            <option value="positive">Positive Rating</option>
-            <option value="negative">Negaive Rating</option>
+            <option value="positive">Positivne</option>
+            <option value="negative">Negativne</option>
         </select>
     </div>
 </div>
-@if (flights().length > 0) {
 <div class="flights">
     @for (flight of flights(); track $index) {
     <div class="card" [attr.data-flight-id]="flight.id">
@@ -74,9 +72,8 @@
     </div>
     }
 </div>
-} @else {
+ @if (1==1) {
 <div class="text-center">
-    <h5>Can't find a flight with selected criteria!</h5>
+    <h5>Nemozemo naci takvu igracku.</h5>
 </div>
-}
 }

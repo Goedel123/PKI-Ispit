@@ -1,6 +1,7 @@
 import { ReservationModel } from "./reservation.model";
 
 export interface ToyModel {
+    Id: number,
     Ime: string,
     Slika: string,
     Opis: string,

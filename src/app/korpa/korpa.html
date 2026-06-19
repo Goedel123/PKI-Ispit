@@ -1,1 +1,48 @@
-<p>korpa works!</p>
+<div class="card rounded-0">
+    <div class="d-flex justify-content-center card-header rounded-0" style="background-color: lightgreen;">
+        <h5>Igracke U Korpi</h5>
+    </div>
+
+    <div class="card-body">
+        @for (toy of getToysUKorpi(); track $index){
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        [attr.data-bs-target]="'#' + toy.Id" aria-expanded="false" aria-controls="item1">
+                        <img [src]="'slike/' + toy.Slika" class="zoom-img" width="60" height="60" [alt]="toy.Ime">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{toy.Ime}} - {{toy.cena}} DIN
+                    </button>
+                </h2>
+
+                <div [id]="toy.Id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <br>
+                    {{toy.cijnaGrupa}} |
+                    {{toy.tip}} |
+                    {{toy.Opis}} |
+                    {{toy.uzrast}} |
+                    {{toy.datumProizvodnje}} 
+                    <div class="accordion-body">
+                        <button type="submit" class="btn btn-outline-danger rounded-0" (click)="IzbaciIzKorpe(toy.Id)">
+                            Izbaci iz korpe
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        }
+    </div>
+</div>
+<div class="card rounded-0">
+    <div class="card-body">
+        <button type="submit" class="btn btn-success rounded-0">
+            Kupi Korpu
+        </button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Puna cena: {{getCelaCena()}} DIN
+    </div>
+</div>

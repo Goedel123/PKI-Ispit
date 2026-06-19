@@ -1,8 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { FlightService } from '../../services/flight.service';
 import { RouterLink } from '@angular/router';
 import { FlightModel } from '../../models/flight.model';
-import { Utils } from '../utils';
+import { Utils, DaliJeUKorpi, UbaciUKorpu } from '../utils';
 import Swal from 'sweetalert2';
 import { UserService } from '../../services/user.service';
 import { FormsModule } from '@angular/forms';
@@ -25,8 +24,8 @@ export class Home {
 
   protected selectedDestination = this.loadValueFromLocalStorage(Home.DESTINATION_KEY, 'all')
   protected selectedFlightNumber = this.loadValueFromLocalStorage(Home.FLIGHT_KEY, 'all')
-  protected selectedDepartureDate = this.loadValueFromLocalStorage(Home.DEPARTURE_KEY , 'all')
-  protected selectedRating = this.loadValueFromLocalStorage(Home.RATING_KEY , 'all')
+  protected selectedDepartureDate = this.loadValueFromLocalStorage(Home.DEPARTURE_KEY, 'all')
+  protected selectedRating = this.loadValueFromLocalStorage(Home.RATING_KEY, 'all')
 
   protected tip = this.loadValueFromLocalStorage("tip", "svi")
   protected kome = this.loadValueFromLocalStorage("kome", "svi")
@@ -46,7 +45,12 @@ export class Home {
     this.search()
     Swal.close()
   }
-
+    DaliJeUKorpi(id: number) {
+     return DaliJeUKorpi(id);
+    }
+    UbaciUKorpu(id: number){
+      return UbaciUKorpu(id);
+    }
   protected getTipovi() {
     const arr = this.sveIgracke().map(f => f.tip)
     return [...new Set(arr)]
@@ -87,31 +91,31 @@ export class Home {
 
     console.log(this.tip);
     this.igracke.set(this.sveIgracke()
-    .filter( f => {
-          console.log( "f.tip je" +f.tip);
-      if (this.tip != 'svi')
-        return f.tip == this.tip
-      return true
-    })
-    .filter( f => {
-      if (this.kome != 'svi')
-        return f.cijnaGrupa == this.kome
-      return true
-    }).filter( f => {
-      if (this.serc != '')
-        return f.Ime.toLowerCase().includes(this.serc.toLowerCase())
-      return true
-    }).filter( f => {
-      console.log(f.datumProizvodnje  + "  wdwd" + this.datum)
-      if (Number(this.datum) != 0)
-        return f.datumProizvodnje == Number(this.datum)
-      return true
-    }).filter( f => {
+      .filter(f => {
+        console.log("f.tip je" + f.tip);
+        if (this.tip != 'svi')
+          return f.tip == this.tip
+        return true
+      })
+      .filter(f => {
+        if (this.kome != 'svi')
+          return f.cijnaGrupa == this.kome
+        return true
+      }).filter(f => {
+        if (this.serc != '')
+          return f.Ime.toLowerCase().includes(this.serc.toLowerCase())
+        return true
+      }).filter(f => {
+        console.log(f.datumProizvodnje + "  wdwd" + this.datum)
+        if (Number(this.datum) != 0)
+          return f.datumProizvodnje == Number(this.datum)
+        return true
+      }).filter(f => {
         return f.cena > Number(this.min)
-    }).filter( f => {
-      return f.cena < Number(this.max)
-    })
-  )
+      }).filter(f => {
+        return f.cena < Number(this.max)
+      })
+    )
 
     this.flights.set(this.allFlights()
       .filter(f => {

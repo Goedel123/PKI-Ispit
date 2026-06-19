@@ -9,6 +9,8 @@ import { UserService } from '../services/user.service';
   styleUrl: './app.css'
 })
 export class App {
+  protected Korpa: Set<number> = new Set<number>();
+  
   protected currentUser = signal<string | null>(null)
   constructor(protected router: Router) {
     this.currentUser.set(localStorage.getItem(UserService.ACTIVE_KEY))

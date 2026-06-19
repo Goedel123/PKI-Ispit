@@ -59,37 +59,24 @@
                <!-- {{toy.flightNumber}} ({{utils.formatDate(flight.scheduledAt)}}) -->
             </h6>
             <p>
-                {{toy.Opis}}<br>
+                {{toy.Opis}}<br><br>
+                Status: {{toy.status}}
             </p>
         </div>
         <div class="card-footer">
-             Status: {{toy.status}} <br>
-        </div>
-    </div>
-    }
-    @for (flight of flights(); track $index) {
-    <div class="card" [attr.data-flight-id]="flight.id">
-        <!--img [src]="utils.getImage(flight.destination)" class="card-img-top" [alt]="flight.destination"-->
-        <div class="card-body">
-            <h5 class="card-title">GREEN TOY</h5>
-            <!--h5 class="card-title">{{flight.destination}}</h5-->
-            <h6 class="card-subtitle mb-2 text-muted">
-                {{flight.flightNumber}} ({{utils.formatDate(flight.scheduledAt)}})
-            </h6>
-            <p>
-                <i class="fa-solid fa-thumbs-up"></i> {{flight.rating?.likes}} <i class="fa-solid fa-thumbs-down"></i>
-                {{flight.rating?.dislikes}}
-            </p>
-        </div>
-        <div class="card-footer">
-            <div class="btn-group">
-                <a [routerLink]="`/details/${flight.id}`" class="btn btn-sm btn-primary">
-                    <i class="fa-solid fa-circle-info"></i> Details
-                </a>
-                <a [routerLink]="`/details/${flight.id}/book`" class="btn btn-sm btn-success">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Book Now
-                </a>
+            @if (!DaliJeUKorpi(toy.Id))
+            {
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary" (click)="UbaciUKorpu(toy.Id)">
+                    Dodaj u korpu
+                </button>
             </div>
+            }
+            @else {
+            <div class="d-flex justify-content-center "style="background-color: lightgreen;">
+                Dodato u Korpu!
+            </div>
+            }
         </div>
     </div>
     }

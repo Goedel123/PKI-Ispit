@@ -4,6 +4,8 @@ import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class Utils {
   public bootstrapClasses = {
     popup: 'card',
@@ -69,4 +71,47 @@ export class Utils {
       }
     })
   }
+}
+export function DaliJeUKorpi(id: number): boolean {
+  const data = localStorage.getItem('korpa');
+  let arr: any;
+  try {
+    arr = data ? JSON.parse(data) : [];
+  } catch {
+    arr = [];
+  }
+  if (!Array.isArray(arr)) {
+    arr = [];
+  }
+  return arr.includes(id);
+}
+export function UbaciUKorpu(id: number) {
+  const data = localStorage.getItem('korpa');
+  let arr: any;
+  try {
+    arr = data ? JSON.parse(data) : [];
+  } catch {
+    arr = [];
+  }
+  if (!Array.isArray(arr)) {
+    arr = [];
+  }
+  const set = new Set<number>(arr);
+  set.add(id);
+  localStorage.setItem('korpa', JSON.stringify([...set]));
+}
+export function IzbaciIzKorpe(id: number) {
+  const data = localStorage.getItem('korpa');
+  let arr: any;
+  try {
+    arr = data ? JSON.parse(data) : [];
+  } catch {
+    arr = [];
+  }
+  if (!Array.isArray(arr)) {
+    arr = [];
+  }
+  const set = new Set<number>(arr);
+  set.delete(id);
+  localStorage.setItem('korpa', JSON.stringify([...set]));
 }

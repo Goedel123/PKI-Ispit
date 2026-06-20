@@ -4,6 +4,12 @@
     </div>
 
     <div class="card-body">
+        @if (getToysUKorpi().length==0)
+        {
+            <br>
+            Nista Nije u Korpi.
+            <br><br>
+        }
         @for (toy of getToysUKorpi(); track $index){
         <div class="accordion accordion-flush" id="accordionFlushExample">
 
@@ -23,7 +29,7 @@
                     {{toy.tip}} |
                     {{toy.Opis}} |
                     {{toy.uzrast}} |
-                    {{toy.datumProizvodnje}} 
+                    {{toy.datumProizvodnje}}
                     <div class="accordion-body">
                         <button type="submit" class="btn btn-outline-danger rounded-0" (click)="IzbaciIzKorpe(toy.Id)">
                             Izbaci iz korpe
@@ -53,6 +59,12 @@
     </div>
 
     <div class="card-body">
+        @if (getToysKupjene().length==0)
+        {
+            <br>
+            Nista Nije Kupjeno.
+            <br><br>
+        }
         @for (toy of getToysKupjene(); track $index){
         <div class="accordion accordion-flush" id="accordionFlushExample">
 
@@ -72,10 +84,12 @@
                     {{toy.tip}} |
                     {{toy.Opis}} |
                     {{toy.uzrast}} |
-                    {{toy.datumProizvodnje}} 
+                    {{toy.datumProizvodnje}}
                     <div class="accordion-body">
                     </div>
-
+                    <button type="submit" class="btn btn-outline-danger rounded-0" (click)="IzbaciIzKorpe(toy.Id)">
+                        Vrati u Prodavnicu
+                    </button>
                 </div>
 
             </div>

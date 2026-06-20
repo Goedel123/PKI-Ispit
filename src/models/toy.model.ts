@@ -11,5 +11,6 @@ export interface ToyModel {
     cena: number,
     status: "na prodaji" | "rezervisano" | "pristiglo" | "otkazano",
     ocena: number,
-
+    like: number,
+    dislike: number,
 }

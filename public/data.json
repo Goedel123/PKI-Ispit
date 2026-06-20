@@ -11,6 +11,8 @@
     "cena": 999,
     "status": "na prodaji",
     "ocena": 3
+    "like": 23
+    "dislike": 10
 
 },
 {
@@ -25,6 +27,8 @@
     "cena": 3,
     "status": "na prodaji",
     "ocena": 3
+    "like": 33
+    "dislike": 2
 
 },
 {
@@ -39,6 +43,8 @@
     "cena": 2565,
     "status": "na prodaji",
     "ocena": 4
+    "like": 56
+    "dislike": 23
 
 },
 {
@@ -53,6 +59,8 @@
     "cena": 2220,
     "status": "na prodaji",
     "ocena": 2
+    "like": 20
+    "dislike": 4
 
 },
 {
@@ -67,6 +75,8 @@
     "cena": 343,
     "status": "na prodaji",
     "ocena": 3
+    "like": 6
+    "dislike": 2
 
 },
 {
@@ -81,6 +91,8 @@
     "cena": 1233,
     "status": "na prodaji",
     "ocena": 5
+    "like": 62
+    "dislike": 12
 
 },
 {
@@ -95,6 +107,8 @@
     "cena": 2133,
     "status": "na prodaji",
     "ocena": 3
+    "like": 20
+    "dislike": 2
 
 },
 {
@@ -109,6 +123,8 @@
     "cena": 2132,
     "status": "na prodaji",
     "ocena": 4
+    "like": 34
+    "dislike": 10
 
 },
 {
@@ -123,6 +139,8 @@
     "cena": 1124,
     "status": "na prodaji",
     "ocena": 3
+    "like": 34
+    "dislike": 3
 
 },
 {
@@ -137,6 +155,8 @@
     "cena": 332,
     "status": "na prodaji",
     "ocena": 3
+    "like": 23
+    "dislike": 1
 
 },
 {
@@ -151,6 +171,8 @@
     "cena": 2300,
     "status": "na prodaji",
     "ocena": 4
+    "like": 67
+    "dislike": 2
 
 },
 {
@@ -165,6 +187,8 @@
     "cena": 1300,
     "status": "na prodaji",
     "ocena": 4
+    "like": 45
+    "dislike": 12
 
 },
 {
@@ -179,7 +203,9 @@
     "cena": 1320,
     "status": "na prodaji",
     "ocena": 2
-
+    "like": 44
+    "dislike": 3
+  
 },
 {
     "Id": 13,
@@ -193,6 +219,8 @@
     "cena": 1100,
     "status": "na prodaji",
     "ocena": 3
+    "like": 13
+    "dislike": 4
 
 },
 {
@@ -207,6 +235,8 @@
     "cena": 2100,
     "status": "na prodaji",
     "ocena": 4
+    "like": 33
+    "dislike": 3
 
 },
 {
@@ -221,6 +251,8 @@
     "cena": 1210,
     "status": "na prodaji",
     "ocena": 3
+    "like": 23
+    "dislike": 5
 
 },
 {
@@ -235,6 +267,8 @@
     "cena": 600,
     "status": "na prodaji",
     "ocena": 3
+    "like": 15
+    "dislike": 2
 
 },
 {
@@ -249,6 +283,8 @@
     "cena": 800,
     "status": "na prodaji",
     "ocena": 4
+    "like": 90
+    "dislike": 21
 
 },
 {
@@ -263,6 +299,8 @@
     "cena": 300,
     "status": "na prodaji",
     "ocena": 2
+    "like": 69
+    "dislike": 12
 
 },
 {
@@ -277,6 +315,8 @@
     "cena": 3000,
     "status": "na prodaji",
     "ocena": 5
+    "like": 12
+    "dislike": 1
 
 },
 {
@@ -291,6 +331,8 @@
     "cena": 600,
     "status": "na prodaji",
     "ocena": 3
+    "like": 23
+    "dislike": 2
 
 },
 {
@@ -305,6 +347,8 @@
     "cena": 2000,
     "status": "na prodaji",
     "ocena": 4
+    "like": 16
+    "dislike": 3
 
 }
 ]

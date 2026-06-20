@@ -33,8 +33,8 @@ export class Profile {
     }
 
     this.profileForm = this.formBuilder.group({
-      firstName: [this.currentUser()!.firstName, Validators.required],
-      lastName: [this.currentUser()!.lastName, Validators.required],
+      name: [this.currentUser()!.name, Validators.required],
+      surname: [this.currentUser()!.surname, Validators.required],
       phone: [this.currentUser()!.phone, Validators.required],
       email: [this.currentUser()!.email, Validators.required],
     })

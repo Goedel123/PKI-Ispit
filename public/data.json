@@ -9,7 +9,7 @@
     "cijnaGrupa": "svi",
     "datumProizvodnje": 1982,
     "cena": 1232,
-    "status": "rezervisano",
+    "status": "na prodaji",
     "ocena": 3
 
 },
@@ -23,7 +23,7 @@
     "cijnaGrupa": "decak",
     "datumProizvodnje": 1923,
     "cena": 3,
-    "status": "rezervisano",
+    "status": "na prodaji",
     "ocena": 3
 
 }

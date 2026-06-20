@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg mb-2" style="background-color: lightgreen;">
   <div class="container">
     <a class="navbar-brand" routerLink="/">
-      <img src="pkilogos.webp" width="120" height="50" class="zoom-img">
+      <img src="pkilogos.webp" width="130" height="60" class="zoom-img">
       <!--i class="fa-solid fa-plane-up"></i-->
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </a>
@@ -13,35 +13,35 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" routerLink="/">
-            Home
+            <b>HOME</b>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/about">
-            About Us
+            <b>ABOUT US</b>
           </a>
         </li>
         @if(hasAuth()) {
         <li class="nav-item">
           <a class="nav-link" routerLink="/profile">
-            Profile
+            <b>PROFILE</b>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/logout">
-            Logout
+            <b>LOG OUT</b>
           </a>
         </li>
         }
         @else {
         <li class="nav-item">
           <a class="nav-link" routerLink="/login">
-            Login
+            <b>LOGIN</b>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/signup">
-            Sign Up
+          <a class="nav-link hover" routerLink="/signup">
+            <b>SIGN UP</b>
           </a>
         </li>
         }
@@ -49,20 +49,26 @@
       @if(hasAuth()) {
       <div class="navbar-text" style="color: white;">
         <a class="nav-link" routerLink="/profile">
-          <i class="fa-solid fa-user"></i> {{currentUser()}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Trenutni Korisnik:
+          {{currentUser()}} <i class="fa-solid fa-user"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </a>
       </div>
       }
     </div>
     <div class="justify-content-end">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <a class="nav-link" routerLink="/favorites">
-          Favorites :] <i class="fa-regular fa-heart"></i>
-        </a>
-        <a class="nav-link" routerLink="/korpa">
-          Korpa
-          <i class="fa-solid fa-cart-shopping"></i>
-        </a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/favorites">
+            <b>FAVORITES</b>&nbsp; <i class="fa-solid fa-heart fs-4"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/korpa">
+            <b>KORPA</b>&nbsp;
+            <i class="fa-solid fa-cart-shopping fs-4"></i>
+          </a>
+
+        </li>
       </ul>
     </div>
   </div>

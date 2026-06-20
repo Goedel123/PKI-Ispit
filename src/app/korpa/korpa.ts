@@ -8,6 +8,19 @@ import { Utils, DaliJeUKorpi, IzbaciIzKorpe } from '../utils';
   styleUrl: './korpa.css',
 })
 export class Korpa {
+  getCenaKupjenog(){
+    return this.getToysKupjene().reduce((a, b)=>a + b.cena,0)
+  }
+
+  getToysKupjene(){
+    var list = ToyService.getToys();
+    list = list.filter(bingus => {
+      console.log(JSON.stringify(bingus))
+      return bingus.status == 'pristiglo'
+    })
+    console.log("donosim " + list.length + " premeta.")
+    return list
+  }
   getToysUKorpi() {
     var list = ToyService.getToys();
     list = list.filter(bingus => {
@@ -22,5 +35,15 @@ export class Korpa {
   }
   IzbaciIzKorpe(id: number) {
     IzbaciIzKorpe(id)
+  }
+  kupi() {
+    var arr = ToyService.getToys();
+    for (var a of arr) {
+      if (DaliJeUKorpi(a.Id))
+        a.status = "pristiglo"
+    }
+    ToyService.setToys(arr)
+    localStorage.setItem("korpa", "")
+
   }
 }

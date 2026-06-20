@@ -1,8 +1,8 @@
 import { ReservationModel } from "./reservation.model";
 
 export interface UserModel {
-    firstName: string,
-    lastName: string,
+    name: string,
+    surname: string,
     email: string,
     phone: string,
     password: string,

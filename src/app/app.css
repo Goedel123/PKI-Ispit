@@ -9,3 +9,10 @@
 .GREEN{
     background-color: lightgreen;
 }
+.nav-item {
+    transition: background-color 0.2s ease;
+}
+
+.nav-item:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}

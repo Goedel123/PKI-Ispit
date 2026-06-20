@@ -6,3 +6,6 @@
 .GREEN {
     background-color: lightgreen;
 }
+body {
+  font: 'Ubuntu', sans-serif;;
+}

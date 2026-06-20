@@ -45,11 +45,15 @@ export class Home {
     this.search()
     Swal.close()
   }
+  DaliJeKupjen(id: number){
+    return ToyService.getToys().find(a=> a.Id==id)?.status ==  'pristiglo'
+  }
+
   DaliJeUKorpi(id: number) {
     return DaliJeUKorpi(id);
   }
   UbaciUKorpu(id: number) {
-    return UbaciUKorpu(id);
+    UbaciUKorpu(id);
   }
   protected getTipovi() {
     const arr = this.sveIgracke().map(f => f.tip)

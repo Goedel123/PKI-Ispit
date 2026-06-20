@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
+import { getModuleFactory, Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
+import { ToyModel } from '../models/toy.model';
+import { ToyService } from '../services/toy.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +15,6 @@ export class Utils {
     denyButton: 'btn btn-secondary',
     confirmButton: 'btn btn-primary'
   }
-
-  public getImage(dest: string) {
-    return `https://img.pequla.com/destination/${dest.split(' ')[0].toLowerCase()}.jpg`
-  }
-
   public formatDate(iso: string) {
     return new Date(iso).toLocaleString('sr-RS', {
       day: '2-digit',
@@ -32,7 +29,8 @@ export class Utils {
     Swal.fire({
       icon: 'info',
       titleText: text,
-      customClass: this.bootstrapClasses
+      customClass: this.bootstrapClasses,
+      draggable: true
     })
   }
 
@@ -42,7 +40,8 @@ export class Utils {
       confirmButtonText: 'Close',
       text: message,
       icon: "error",
-      customClass: this.bootstrapClasses
+      customClass: this.bootstrapClasses,
+      draggable: true
     })
   }
 
@@ -99,6 +98,11 @@ export function UbaciUKorpu(id: number) {
   const set = new Set<number>(arr);
   set.add(id);
   localStorage.setItem('korpa', JSON.stringify([...set]));
+
+  var l: ToyModel[] = ToyService.getToys();
+  var b = l.find(a => a.Id==id) as ToyModel
+  b.status='rezervisano'
+  ToyService.setToys(l)
 }
 export function IzbaciIzKorpe(id: number) {
   const data = localStorage.getItem('korpa');
@@ -114,4 +118,9 @@ export function IzbaciIzKorpe(id: number) {
   const set = new Set<number>(arr);
   set.delete(id);
   localStorage.setItem('korpa', JSON.stringify([...set]));
+
+  var l: ToyModel[] = ToyService.getToys();
+  var b = l.find(a => a.Id==id) as ToyModel
+  b.status="na prodaji"
+  ToyService.setToys(l)
 }

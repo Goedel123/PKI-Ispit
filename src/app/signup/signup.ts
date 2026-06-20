@@ -16,23 +16,38 @@ export class Signup {
   constructor(private formBuilder: FormBuilder, protected router: Router, private utils: Utils) {
 
     this.form = this.formBuilder.group({
-      Name: ['', Validators.required],
-      Surname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
-      password: ['', Validators.required],
-      confirm: ['', Validators.required],
+      name: ['Marko', Validators.required],
+      surname: ['Markovic', Validators.required],
+      email: ['Markovic@example.com', [Validators.required, Validators.email]],
+      phone: ['123 1234567',],
+      password: ['lozinka', Validators.required],
+      confirm: ['lozinka', Validators.required],
       checkbox: [false, Validators.requiredTrue]
     })
   }
 
   onSubmit() {
-    if (!this.form.valid) {
-      this.utils.showError('Invalid form data!')
-      return
+    if (this.form.get('username')?.hasError('required')) {
+      this.utils.showError('Username is required');
+      return;
     }
 
-    if (this.form.value.password !== this.form.value.repeat) {
+    if (this.form.get('email')?.hasError('required')) {
+      this.utils.showError('Email is required');
+      return;
+    }
+
+    if (this.form.get('email')?.hasError('email')) {
+      this.utils.showError('Email is not valid');
+      return;
+    }
+
+    if (this.form.get('password')?.hasError('required')) {
+      this.utils.showError('Password is required');
+      return;
+    }
+    console.log(this.form.value.password + this.form.value.confirm)
+    if (this.form.value.password != this.form.value.confirm) {
       this.utils.showError(`Passwords don't match!`)
       return
     }

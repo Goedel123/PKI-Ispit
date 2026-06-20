@@ -1,5 +1,46 @@
-<img src="grin.jpg" width="1090" height="350" class="zoom-imge">
-<br>
+<nav class="navbar navbar-expand-lg mb-2 rounded-2" style="background-color: red;">
+    <div class="container" style="background-color: red;">
+        <div class="announcement-bar" style="background-color: red;">
+            <div class="announcement-content" style="background-color: red;">
+                <b>
+                    Nove Igracke!🚀 Kupite danas!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @for (toy of sveIgracke(); track $index )
+                    {
+                    @for (toy of sveIgracke(); track $index )
+                    {
+                    <img [src]="'slike/' + toy.Slika" class="zoom-img rounded-2 me-4" width="40" height="40"
+                        [alt]="toy.Ime">
+                    }
+                    💥💥Nove Igracke! Kupite danas!💥💥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    📉📉📉Popus do 20% tokom nedeje!📉📉📉&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Neverovatne cene!!📈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Kupi sve dok ima!!!📈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    }
+                </b>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="d-flex justify-content-center">
+    <img src="grin.jpg" width="1090" height="350" class="zoom-imge">
+</div>
+<nav class="navbar navbar-expand-lg mb-2 rounded-2" style="background-color: red;">
+    <div class="container" style="background-color: red;">
+        <div class="announcement-bar" style="background-color: red;">
+            <div class="announcement-content" style="background-color: red;">
+                <b>
+                    💥💥Nove Igracke! Kupite danas!💥💥&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    📉📉📉Popus do 20% tokom nedeje!📉📉📉&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Neverovatne cene!!📈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Kupi sve dok ima!!!📈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Kupi sve dok ima!!!📈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Kupi sve dok ima!!!📈&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </b>
+            </div>
+        </div>
+    </div>
+</nav>
+<br><br>
 <div class="row">
     <div class="col-13 col-md-12 mb-3">
         <form class="d-flex" role="search">
@@ -68,7 +109,13 @@
             <div class="d-flex justify-content-center">
                 <br><b>Cena: {{toy.cena}} Dinara<br></b>
             </div>
-            @if (!DaliJeUKorpi(toy.Id))
+            @if (DaliJeKupjen(toy.Id))
+            {
+            <div class="d-flex justify-content-center">
+                Ova Igracka je vec kupjena.
+            </div>
+            }
+            @else if (!DaliJeUKorpi(toy.Id))
             {
             <div class="d-flex justify-content-center">
                 <button class="btn btn-primary" (click)="UbaciUKorpu(toy.Id)">
@@ -81,8 +128,16 @@
                 Dodato u Korpu!
             </div>
             }
-            @if (DaliJeUKorpi(toy.Id)){
-            Status: Rezervisano
+            @if (DaliJeUKorpi(toy.Id))
+            {
+            <div class="d-flex justify-content-center">
+                Status: rezervisano
+            </div>
+            }
+            @if (toy.status=='pristiglo'){
+            <div class="d-flex justify-content-center">
+                Status: pristiglo
+            </div>
             }
         </div>
     </div>

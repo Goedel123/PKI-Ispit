@@ -1,4 +1,4 @@
-#README AKO OCES
+# README AKO OCES
 
 Ispit iz PKI.
 

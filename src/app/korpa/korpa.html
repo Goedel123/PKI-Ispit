@@ -1,14 +1,14 @@
 <div class="card rounded-0">
     <div class="d-flex justify-content-center card-header rounded-0" style="background-color: lightgreen;">
-        <h5>Igracke U Korpi</h5>
+        <h5>Igracke u Korpi</h5>
     </div>
 
     <div class="card-body">
         @if (getToysUKorpi().length==0)
         {
-            <br>
-            Nista Nije u Korpi.
-            <br><br>
+        <br>
+        Nista Nije u Korpi.
+        <br><br>
         }
         @for (toy of getToysUKorpi(); track $index){
         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -25,11 +25,20 @@
 
                 <div [id]="toy.Id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                     <br>
-                    {{toy.cijnaGrupa}} |
-                    {{toy.tip}} |
-                    {{toy.Opis}} |
-                    {{toy.uzrast}} |
-                    {{toy.datumProizvodnje}}
+                    <button type="submit" class="btn btn-warning rounded-4">
+                        😊 Svidja mi se!
+                    </button><br><br>
+                    <button type="submit" class="btn btn-danger rounded-4">
+                        😔 Lose je..
+                    </button>
+                    <br><br><br>
+                    😊 2 Like <br>
+                    😔 3 Dislike <br>
+                    Ocena: {{toy.ocena}} <br>
+                    Tip igracke: {{toy.tip}} <br>
+                    Uzrast: za decu starije od {{toy.uzrast}} godina<br>
+                    Cijna Grupa: {{toy.cijnaGrupa}} <br>
+                    Godina Proizvodjne: {{toy.datumProizvodnje}} <br>
                     <div class="accordion-body">
                         <button type="submit" class="btn btn-outline-danger rounded-0" (click)="IzbaciIzKorpe(toy.Id)">
                             Izbaci iz korpe
@@ -61,9 +70,9 @@
     <div class="card-body">
         @if (getToysKupjene().length==0)
         {
-            <br>
-            Nista Nije Kupjeno.
-            <br><br>
+        <br>
+        Nista Nije Kupjeno.
+        <br><br>
         }
         @for (toy of getToysKupjene(); track $index){
         <div class="accordion accordion-flush" id="accordionFlushExample">

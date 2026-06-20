@@ -11,9 +11,9 @@ import { ToyService } from '../services/toy.service';
 export class Utils {
   public bootstrapClasses = {
     popup: 'card',
-    cancelButton: 'btn btn-danger',
-    denyButton: 'btn btn-secondary',
-    confirmButton: 'btn btn-primary'
+    cancelButton: 'btn btn-outline-danger border-0',
+    denyButton: 'btn btn-outline-secondary border-0',
+    confirmButton: 'btn btn-outline-primary border-0'
   }
   public formatDate(iso: string) {
     return new Date(iso).toLocaleString('sr-RS', {

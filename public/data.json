@@ -1,14 +1,14 @@
 [
 {
     "Id": 0,
-    "Ime": "Pikacu kocka",
+    "Ime": "Pikacu",
     "Slika": "igracka.jpg",
-    "Opis": "Zabavno",
-    "tip": "Kocka",
-    "uzrast": 5,
+    "Opis": "Pokemon iz Pokemon!",
+    "tip": "Plisana",
+    "uzrast": 3,
     "cijnaGrupa": "svi",
-    "datumProizvodnje": 1982,
-    "cena": 1232,
+    "datumProizvodnje": 1907,
+    "cena": 999,
     "status": "na prodaji",
     "ocena": 3
 

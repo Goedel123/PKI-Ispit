@@ -25,12 +25,26 @@
 
                 <div [id]="toy.Id" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                     <br>
-                    <button type="submit" class="btn btn-warning rounded-4">
+                    @if (!getopion(toy.Id))
+                    {
+                    <button type="submit" class="btn btn-warning rounded-4" (click)="addLike(toy.Id)">
                         😊 Svidja mi se!
                     </button><br><br>
-                    <button type="submit" class="btn btn-danger rounded-4">
+                    <button type="submit" class="btn btn-danger rounded-4" (click)="addDislike(toy.Id)">
                         😭 Lose je..
                     </button>
+                    }
+                    @else if (getopion2(toy.Id))
+                    {
+                    <div class="border rounded-2">
+                        😊 Vama se Svidja!
+                    </div>
+                    }
+                    @else {
+                    <div class="border rounded-2">
+                        😭 Vama se Nesvidja...
+                    </div>
+                    }
                     <br><br><br>
                     😊 {{toy.like}} Like <br>
                     😭 {{toy.dislike}} Dislike <br>

@@ -30,6 +30,7 @@ export class Home {
   protected datum = this.loadValueFromLocalStorage("datum", "0")
   protected min = this.loadValueFromLocalStorage("min", 0)
   protected max = this.loadValueFromLocalStorage("max", 3000)
+  protected rating = this.loadValueFromLocalStorage("rating", 'svi')
 
   protected sveIgracke = signal<ToyModel[]>([])
   protected igracke = signal<ToyModel[]>([])
@@ -72,6 +73,7 @@ export class Home {
     localStorage.setItem("datum", this.datum)
     localStorage.setItem("min", this.min)
     localStorage.setItem("max", this.max)
+    localStorage.setItem("rating", this.rating)
 
     console.log(this.tip);
     this.igracke.set(this.sveIgracke()
@@ -98,6 +100,14 @@ export class Home {
         return f.cena > Number(this.min)
       }).filter(f => {
         return f.cena < Number(this.max)
+      }).filter(f => {
+        if (this.rating == 'svi')
+          return true
+        if (this.rating == 'pos')
+          return f.like>f.dislike
+        if (this.rating == 'neg')
+          return f.dislike>f.like
+        return true
       })
     )
   }

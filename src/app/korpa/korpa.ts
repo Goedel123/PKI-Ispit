@@ -9,17 +9,29 @@ import { ToyModel } from '../../models/toy.model';
   styleUrl: './korpa.css',
 })
 export class Korpa {
+  static opion: Set<number> = new Set;
+  static opion2: Set<number> = new Set;
   addLike(id:number){
     var l = ToyService.getToys();
     var bing = l.find(z => z.Id==id) as ToyModel
     bing.like++;
     ToyService.setToys(l)
+    Korpa.opion.add(id);
+    Korpa.opion2.add(id);
   }
   addDislike(id:number){
     var l = ToyService.getToys();
     var bing = l.find(z => z.Id==id) as ToyModel
+    console.log("rrgrg" +JSON.stringify(bing))
     bing.dislike++;
     ToyService.setToys(l)
+    Korpa.opion.add(id);
+  }
+  getopion(id: number){
+    return Korpa.opion.has(id);
+  }
+  getopion2(id:number){
+    return Korpa.opion2.has(id);
   }
   getCenaKupjenog(){
     return this.getToysKupjene().reduce((a, b)=>a + b.cena,0)

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ToyService } from '../../services/toy.service';
-import { Utils, DaliJeUKorpi, IzbaciIzKorpe } from '../utils';
+import { DaliJeUKorpi, IzbaciIzKorpe } from '../utils';
+import { ToyModel } from '../../models/toy.model';
 @Component({
   selector: 'app-korpa',
   imports: [],
@@ -8,6 +9,18 @@ import { Utils, DaliJeUKorpi, IzbaciIzKorpe } from '../utils';
   styleUrl: './korpa.css',
 })
 export class Korpa {
+  addLike(id:number){
+    var l = ToyService.getToys();
+    var bing = l.find(z => z.Id==id) as ToyModel
+    bing.like++;
+    ToyService.setToys(l)
+  }
+  addDislike(id:number){
+    var l = ToyService.getToys();
+    var bing = l.find(z => z.Id==id) as ToyModel
+    bing.dislike++;
+    ToyService.setToys(l)
+  }
   getCenaKupjenog(){
     return this.getToysKupjene().reduce((a, b)=>a + b.cena,0)
   }

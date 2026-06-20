@@ -26,5 +26,285 @@
     "status": "na prodaji",
     "ocena": 3
 
+},
+{
+    "Id": 2,
+    "Ime": "Zmajic",
+    "Slika": "igracka3.png",
+    "Opis": "Mek za grljenje",
+    "tip": "Plisana",
+    "uzrast": 9,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 1999,
+    "cena": 2565,
+    "status": "na prodaji",
+    "ocena": 4
+
+},
+{
+    "Id": 3,
+    "Ime": "Foka",
+    "Slika": "igracka4.png",
+    "Opis": "Za spavanje",
+    "tip": "Plisana",
+    "uzrast": 5,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 2005,
+    "cena": 2220,
+    "status": "na prodaji",
+    "ocena": 2
+
+},
+{
+    "Id": 4,
+    "Ime": "Poni",
+    "Slika": "igracka5.png",
+    "Opis": "Moj mali poni",
+    "tip": "Figura",
+    "uzrast": 10,
+    "cijnaGrupa": "devojcica",
+    "datumProizvodnje": 2014,
+    "cena": 343,
+    "status": "na prodaji",
+    "ocena": 3
+
+},
+{
+    "Id": 5,
+    "Ime": "Betmen",
+    "Slika": "igracka6.png",
+    "Opis": "Privezak",
+    "tip": "Privezak",
+    "uzrast": 12,
+    "cijnaGrupa": "decak",
+    "datumProizvodnje": 2003,
+    "cena": 1233,
+    "status": "na prodaji",
+    "ocena": 5
+
+},
+{
+    "Id": 6,
+    "Ime": "Klavir",
+    "Slika": "igracka7.png",
+    "Opis": "Muzika",
+    "tip": "Instrument",
+    "uzrast": 8,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 2001,
+    "cena": 2133,
+    "status": "na prodaji",
+    "ocena": 3
+
+},
+{
+    "Id": 7,
+    "Ime": "Stonoga",
+    "Slika": "igracka8.png",
+    "Opis": "Sareno",
+    "tip": "Stonoga",
+    "uzrast": 8,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 2010,
+    "cena": 2132,
+    "status": "na prodaji",
+    "ocena": 4
+
+},
+{
+    "Id": 8,
+    "Ime": "Slepi mis",
+    "Slika": "igracka9.png",
+    "Opis": "Sareno",
+    "tip": "Plisana",
+    "uzrast": 10,
+    "cijnaGrupa": "devojcica",
+    "datumProizvodnje": 2011,
+    "cena": 1124,
+    "status": "na prodaji",
+    "ocena": 3
+
+},
+{
+    "Id": 9,
+    "Ime": "Mis",
+    "Slika": "igracka10.png",
+    "Opis": "Slatko",
+    "tip": "Mis sa sirom",
+    "uzrast": 10,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 2011,
+    "cena": 332,
+    "status": "na prodaji",
+    "ocena": 3
+
+},
+{
+    "Id": 10,
+    "Ime": "Silvion",
+    "Slika": "igracka11.png",
+    "Opis": "Zabavno",
+    "tip": "Plisana",
+    "uzrast": 6,
+    "cijnaGrupa": "devojcica",
+    "datumProizvodnje": 2012,
+    "cena": 2300,
+    "status": "na prodaji",
+    "ocena": 4
+
+},
+{
+    "Id": 11,
+    "Ime": "Kuce",
+    "Slika": "igracka12.png",
+    "Opis": "Kuca u sladoledu",
+    "tip": "Plisana",
+    "uzrast": 7,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 2012,
+    "cena": 1300,
+    "status": "na prodaji",
+    "ocena": 4
+
+},
+{
+    "Id": 12,
+    "Ime": "Konj",
+    "Slika": "igracka13.png",
+    "Opis": "Konj sa papucom",
+    "tip": "Plisana",
+    "uzrast": 8,
+    "cijnaGrupa": "decak",
+    "datumProizvodnje": 2011,
+    "cena": 1320,
+    "status": "na prodaji",
+    "ocena": 2
+
+},
+{
+    "Id": 13,
+    "Ime": "Cudoviste",
+    "Slika": "igracka14.png",
+    "Opis": "Plavo cudoviste",
+    "tip": "Figura",
+    "uzrast": 10,
+    "cijnaGrupa": "decak",
+    "datumProizvodnje": 2011,
+    "cena": 1100,
+    "status": "na prodaji",
+    "ocena": 3
+
+},
+{
+    "Id": 14,
+    "Ime": "Bumbar",
+    "Slika": "igracka15.png",
+    "Opis": "Veliki bumbar",
+    "tip": "Plisana",
+    "uzrast": 4,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 2001,
+    "cena": 2100,
+    "status": "na prodaji",
+    "ocena": 4
+
+},
+{
+    "Id": 15,
+    "Ime": "Civavavava",
+    "Slika": "igracka16.png",
+    "Opis": "Civava",
+    "tip": "Plisana",
+    "uzrast": 7,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 2003,
+    "cena": 1210,
+    "status": "na prodaji",
+    "ocena": 3
+
+},
+{
+    "Id": 16,
+    "Ime": "Telefoncic",
+    "Slika": "igracka17.png",
+    "Opis": "Plasticni telefon",
+    "tip": "Plastika",
+    "uzrast": 9,
+    "cijnaGrupa": "devojcica",
+    "datumProizvodnje": 2011,
+    "cena": 600,
+    "status": "na prodaji",
+    "ocena": 3
+
+},
+{
+    "Id": 17,
+    "Ime": "Spiner",
+    "Slika": "igracka18.png",
+    "Opis": "Spiner",
+    "tip": "Fidget",
+    "uzrast": 12,
+    "cijnaGrupa": "decak",
+    "datumProizvodnje": 2011,
+    "cena": 800,
+    "status": "na prodaji",
+    "ocena": 4
+
+},
+{
+    "Id": 18,
+    "Ime": "Macka lopta",
+    "Slika": "igracka19.png",
+    "Opis": "Lopta macka",
+    "tip": "Fidget",
+    "uzrast": 10,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 1999,
+    "cena": 300,
+    "status": "na prodaji",
+    "ocena": 2
+
+},
+{
+    "Id": 19,
+    "Ime": "Kuca od drveta",
+    "Slika": "igracka20.png",
+    "Opis": "Kucica",
+    "tip": "Plastika",
+    "uzrast": 9,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 1998,
+    "cena": 3000,
+    "status": "na prodaji",
+    "ocena": 5
+
+},
+{
+    "Id": 20,
+    "Ime": "Maca",
+    "Slika": "igracka21.png",
+    "Opis": "Frankenstajn macka",
+    "tip": "Plisana",
+    "uzrast": 3,
+    "cijnaGrupa": "decak",
+    "datumProizvodnje": 2010,
+    "cena": 600,
+    "status": "na prodaji",
+    "ocena": 3
+
+},
+{
+    "Id": 21,
+    "Ime": "Majmunce",
+    "Slika": "igracka22.png",
+    "Opis": "Majmun koji drzi bananu",
+    "tip": "Plisana",
+    "uzrast": 3,
+    "cijnaGrupa": "svi",
+    "datumProizvodnje": 2019,
+    "cena": 2000,
+    "status": "na prodaji",
+    "ocena": 4
+
 }
 ]

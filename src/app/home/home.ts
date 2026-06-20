@@ -1,16 +1,13 @@
 import { Component, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { FlightModel } from '../../models/flight.model';
 import { Utils, DaliJeUKorpi, UbaciUKorpu } from '../utils';
 import Swal from 'sweetalert2';
-import { UserService } from '../../services/user.service';
 import { FormsModule } from '@angular/forms';
 import { ToyModel } from '../../models/toy.model';
 import { ToyService } from '../../services/toy.service';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, FormsModule],
+  imports: [FormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -34,8 +31,6 @@ export class Home {
   protected min = this.loadValueFromLocalStorage("min", 0)
   protected max = this.loadValueFromLocalStorage("max", 3000)
 
-  protected allFlights = signal<FlightModel[]>([])
-  protected flights = signal<FlightModel[]>([])
   protected sveIgracke = signal<ToyModel[]>([])
   protected igracke = signal<ToyModel[]>([])
 
@@ -63,21 +58,6 @@ export class Home {
     const arr = this.sveIgracke().map(f => f.datumProizvodnje)
     return [...new Set(arr)]
   }
-  protected getDestinations() {
-    const arr = this.allFlights().map(f => f.destination)
-    return [...new Set(arr)]
-  }
-
-  protected getFlightNumbers() {
-    const arr = this.allFlights().map(f => f.flightNumber)
-    return [...new Set(arr)]
-  }
-
-  protected getDepartureDates() {
-    const arr = this.allFlights().map(f => f.scheduledAt.split('T')[0])
-    return [...new Set(arr)]
-  }
-
   protected search() {
     console.log(this.tip);
     // Podesavamo vrednosti nazad svih select polja u local storage
@@ -118,37 +98,6 @@ export class Home {
         return f.cena > Number(this.min)
       }).filter(f => {
         return f.cena < Number(this.max)
-      })
-    )
-
-    this.flights.set(this.allFlights()
-      .filter(f => {
-        if (this.selectedDestination != 'all')
-          return f.destination == this.selectedDestination
-        return true
-      })
-      .filter(f => {
-        if (this.selectedFlightNumber != 'all')
-          return f.flightNumber == this.selectedFlightNumber
-        return true
-      })
-      .filter(f => {
-        if (this.selectedDepartureDate != 'all')
-          return f.scheduledAt.split('T')[0] == this.selectedDepartureDate
-        return true
-      })
-      .filter(f => {
-        if (this.selectedRating == 'all')
-          return true
-        if (f.rating == undefined)
-          return false
-        if (f.rating.likes == 0 && f.rating.dislikes == 0)
-          return false
-        if (this.selectedRating == 'positive')
-          return f.rating.likes >= f.rating.dislikes
-        if (this.selectedRating == 'negative')
-          return f.rating.dislikes > f.rating.likes
-        return true
       })
     )
   }

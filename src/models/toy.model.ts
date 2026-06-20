@@ -1,4 +1,3 @@
-import { ReservationModel } from "./reservation.model";
 
 export interface ToyModel {
     Id: number,

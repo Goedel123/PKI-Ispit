@@ -1,6 +1,4 @@
-import { ReservationModel } from "../models/reservation.model"
 import { UserModel } from "../models/user.model"
-import { FlightService } from "./flight.service"
 
 export class UserService {
     public static USERS_KEY = 'pki_users'
@@ -111,49 +109,6 @@ export class UserService {
         })
         localStorage.setItem(UserService.USERS_KEY, JSON.stringify(users))
     }
-
-    static async loadRatingForDestination() {
-        const reservations: ReservationModel[] = []
-
-        // Grupisemo sve rezervacije svih korisnika
-        // u jedan zajednicki niz
-        for (let u of this.getUsers()) {
-            //reservations.push(...u.data)
-        }
-
-        // Ucitavamo sve detalje letova za sve rezervacije
-        let ratings: any = {}
-        const rsp = await FlightService.getFlightsByIds(reservations.map(r => r.flightId))
-        for (let f of rsp.data) {
-            for (let r of reservations) {
-                if (f.id == r.flightId) {
-                    const destinationName = f.destination.replaceAll(' ', '_')
-
-                    // Proveri da li je ta destinacija (destinationName) ikada definisana
-                    // I ako nije onda joj podesi pocetne vrednosti za broj lajkova i dislajkova
-                    if (ratings[destinationName] == undefined) {
-                        ratings[destinationName] = {
-                            likes: 0,
-                            dislikes: 0
-                        }
-                    }
-
-                    // Ako je lakovano povecaj za 1 lakove
-                    if (r.status == 'liked') {
-                        ratings[destinationName].likes++
-                    }
-
-                    // Ako je dislajkovano povecaj za jedan dislakove
-                    if (r.status == 'disliked') {
-                        ratings[destinationName].dislikes++
-                    }
-                }
-            }
-        }
-
-        return ratings
-    }
-
     static logout() {
         localStorage.removeItem(UserService.ACTIVE_KEY)
     }

@@ -1,4 +1,3 @@
-import { ReservationModel } from "./reservation.model";
 
 export interface UserModel {
     name: string,

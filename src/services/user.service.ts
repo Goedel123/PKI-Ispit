@@ -50,51 +50,15 @@ export class UserService {
 
         return this.findUserByEmail(active)
     }
-
-    static createReservation(id: number, airline: string, suite: string) {
-        const active = this.getActiveUser()
-        const users = this.getUsers()
-        users.forEach(u => {
-            if (u.email == active.email) {
-                /*u.data.push({
-                    flightId: id,
-                    airline,
-                    suite,
-                    status: 'waiting',
-                    createdAt: new Date().toISOString(),
-                    updatedAt: null
-                })*/
-            }
-        })
-        localStorage.setItem(UserService.USERS_KEY, JSON.stringify(users))
-    }
-
-    static updateReservationStatus(createdAt: string, newStatus: 'paid' | 'waiting' | 'canceled' | 'liked' | 'disliked') {
-        const active = this.getActiveUser()
-        const users = this.getUsers()
-        users.forEach(u => {
-            if (u.email == active.email) {
-                /*u.data.forEach(r => {
-                    if (r.createdAt == createdAt) {
-                        r.updatedAt = new Date().toISOString()
-                        r.status = newStatus
-                    }
-                })*/
-            }
-        })
-        localStorage.setItem(UserService.USERS_KEY, JSON.stringify(users))
-    }
-
     static updateUser(newUser: UserModel) {
         const active = this.getActiveUser()
         const users = this.getUsers()
         users.forEach(u => {
-            /*if (u.email == active.email) {
-                u.firstName = newUser.firstName
-                u.lastName = newUser.lastName
+            if (u.email == active.email) {
+                u.name = newUser.name
+                u.surname = newUser.surname
                 u.phone = newUser.phone
-                u.destination = newUser.destination
-            }*/
+            }
         })
         localStorage.setItem(UserService.USERS_KEY, JSON.stringify(users))
     }

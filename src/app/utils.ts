@@ -1,4 +1,4 @@
-import { getModuleFactory, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
 import { ToyModel } from '../models/toy.model';
 import { ToyService } from '../services/toy.service';

@@ -12,18 +12,6 @@ import { ToyService } from '../../services/toy.service';
   styleUrl: './home.css'
 })
 export class Home {
-
-
-  private static DESTINATION_KEY = 'pki_destination'
-  private static FLIGHT_KEY = 'pki_flight'
-  private static DEPARTURE_KEY = 'pki_departure'
-  private static RATING_KEY = 'pki_rating'
-
-  protected selectedDestination = this.loadValueFromLocalStorage(Home.DESTINATION_KEY, 'all')
-  protected selectedFlightNumber = this.loadValueFromLocalStorage(Home.FLIGHT_KEY, 'all')
-  protected selectedDepartureDate = this.loadValueFromLocalStorage(Home.DEPARTURE_KEY, 'all')
-  protected selectedRating = this.loadValueFromLocalStorage(Home.RATING_KEY, 'all')
-
   protected tip = this.loadValueFromLocalStorage("tip", "svi")
   protected kome = this.loadValueFromLocalStorage("kome", "svi")
   protected serc = this.loadValueFromLocalStorage("serc", "")
@@ -61,12 +49,6 @@ export class Home {
   }
   protected search() {
     console.log(this.tip);
-    // Podesavamo vrednosti nazad svih select polja u local storage
-    localStorage.setItem(Home.DESTINATION_KEY, this.selectedDestination)
-    localStorage.setItem(Home.FLIGHT_KEY, this.selectedFlightNumber)
-    localStorage.setItem(Home.DEPARTURE_KEY, this.selectedDepartureDate)
-    localStorage.setItem(Home.RATING_KEY, this.selectedRating)
-
     localStorage.setItem("tip", this.tip)
     localStorage.setItem("kome", this.kome)
     localStorage.setItem("serc", this.serc)

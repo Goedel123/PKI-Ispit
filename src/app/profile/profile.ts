@@ -19,11 +19,8 @@ export class Profile {
 
   constructor(private formBuilder: FormBuilder, private router: Router, public utils: Utils) {
     try {
-     // this.utils.showLoading()
       this.currentUser.set(UserService.getActiveUser())
     } catch {
-      // Nema aktivnog korisnika
-      // Idi na login
       this.router.navigate(['/login'])
     }
 

@@ -24,7 +24,9 @@ export class Home {
   protected igracke = signal<ToyModel[]>([])
 
   constructor(protected utils: Utils) {
-    //this.utils.showLoading()
+    Swal.fire({
+      title: "Loading..",
+    })
     this.sveIgracke.set(ToyService.getToys())
     this.search()
     Swal.close()

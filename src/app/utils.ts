@@ -65,9 +65,9 @@ export class Utils {
       title: "Please wait",
       text: "We are fetching the latest data from our servers!",
       customClass: this.bootstrapClasses,
-      didOpen: () => {
-        Swal.showLoading()
-      }
+      //didOpen: () => {
+      //  Swal.showLoading()
+      //}
     })
   }
 }

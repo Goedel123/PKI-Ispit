@@ -8,8 +8,8 @@ export class UserService {
         if (!localStorage.getItem(UserService.USERS_KEY))
             localStorage.setItem(UserService.USERS_KEY, JSON.stringify([
                 {
-                    firstName: 'User',  
-                    lastName: 'Example',
+                    name: 'User',  
+                    surname: 'Example',
                     email: 'user@example.com',
                     phone: '+38163123123',
                     password: 'user123',
